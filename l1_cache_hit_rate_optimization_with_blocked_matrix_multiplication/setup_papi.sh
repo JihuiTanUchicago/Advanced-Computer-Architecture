@@ -1,0 +1,4 @@
+
+export PAPI_EVENTS="PAPI_L1_DCM"
+echo "PAPI_EVENTS set to: $PAPI_EVENTS"
+
