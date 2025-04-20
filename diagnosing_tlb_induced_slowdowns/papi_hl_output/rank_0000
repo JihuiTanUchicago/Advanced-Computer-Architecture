@@ -1,0 +1,26 @@
+{
+  "cpu in mhz":"3000",
+  "threads":[
+    {
+      "id":"139681565112192",
+      "regions":[
+        {
+          "tlb_stress Pages=1;Stride=1":{
+            "region_count":"1",
+            "cycles":"102782",
+            "PAPI_TLB_DM":"18",
+            "PAPI_L1_DCM":"4445"
+          }
+        },
+        {
+          "tlb_stress Pages=4096;Stride=1024":{
+            "region_count":"1",
+            "cycles":"192810",
+            "PAPI_TLB_DM":"229",
+            "PAPI_L1_DCM":"4191"
+          }
+        }
+      ]
+    }
+  ]
+}
