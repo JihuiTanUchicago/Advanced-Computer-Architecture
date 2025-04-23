@@ -1,10 +1,4 @@
-# Name: Todd Tan
-
-# Project 1: Cache Emulator
-
 # Cache Emulator Analysis
-
-## 2.1 Correctness
 
 ### DAXPY (n = 9, D = 3)
 
@@ -98,7 +92,7 @@ Write misses: 4
 Write miss rate: 11.11%
 ```
 
-## 2.2 Cache Associativity Analysis
+## Cache Associativity Analysis
 
 | Associativity | Instructions | Read Hits   | Read Misses | Read Miss % | Write Hits | Write Misses | Write Miss % |
 |---------------|--------------|-------------|--------------|--------------|-------------|----------------|----------------|
@@ -112,7 +106,7 @@ Write miss rate: 11.11%
 8-way associativity offers a strong balance between hardware complexity and cache performance. 
 Going beyond 8-way yields no gain and will likely saturate performance.
 
-## 2.3 Memory Block Size Analysis
+## Memory Block Size Analysis
 
 | Block Size | Instructions | Read Hits   | Read Misses | Read Miss % | Write Hits | Write Misses | Write Miss % |
 |------------|--------------|-------------|--------------|--------------|-------------|----------------|----------------|
@@ -131,7 +125,7 @@ As the block size increases from 8 to 256 bytes, both read and write miss rates 
 The optimal point appears around 128–256 bytes, where miss rates are minimized (read miss ≈ 0.10%, write miss ≈ 0.52%). Beyond this point, as block size grows to 512 and then 1024, miss rates begin to rise again. This happens because fewer total blocks can now fit in the same cache size. At 1024 bytes per block, only 64 blocks exist in the entire cache, increasing conflict misses and cache pollution—especially for write traffic, which becomes significantly worse (write miss rate jumps to 29.29%).
 ```
 
-## 2.4 Total Cache Size Analysis
+## Total Cache Size Analysis
 
 | Cache Size | Instructions | Read Hits   | Read Misses | Read Miss % | Write Hits | Write Misses | Write Miss % |
 |------------|--------------|-------------|--------------|--------------|-------------|----------------|----------------|
@@ -144,9 +138,9 @@ The optimal point appears around 128–256 bytes, where miss rates are minimized
 | 262144     | 449,971,200  | 224,019,377 |   620,623    | 0.28%        | 4,060,800   | 86,400         | 2.08%          |
 | 524288     | 449,971,200  | 224,133,224 |   506,776    | 0.23%        | 4,060,800   | 86,400         | 2.08%          |
 
-## 2.5 Problem Size and Cache Thrashing
+## Problem Size and Cache Thrashing
 
-### Table 4: Associativity = 2
+### Associativity = 2
 
 | Matrix Dimension | MxM Method  | Blocking Factor | Instructions | Read Hits   | Read Misses | Read Miss % | Write Hits  | Write Misses | Write Miss % |
 |------------------|-------------|-----------------|--------------|-------------|-------------|-------------|-------------|--------------|--------------|
@@ -168,7 +162,7 @@ The optimal point appears around 128–256 bytes, where miss rates are minimized
 The blocked matrix multiplication algorithm divides the matrix into smaller blocks that fit more effectively within the cache. This method improves spatial locality and reduces cache thrashing because each block can be reused multiple times before being evicted from the cache. For larger matrices (512×512), blocking allows us to maximize cache utilization, leading to significantly lower cache misses.
 ```
 
-### Table 5: Associativity = 8
+### Associativity = 8
 
 | Matrix Dimension | MxM Type | Block | Instructions | Read Hits   | Read Misses | Read Miss % | Write Hits | Write Misses | Write Miss % |
 |------------------|----------|-------|--------------|-------------|-------------|-------------|------------|--------------|--------------|
@@ -180,7 +174,7 @@ The blocked matrix multiplication algorithm divides the matrix into smaller bloc
 | 512              | Blocked  | 8     | 571,211,776  | 281,429,120 | 3,783,552   | 1.33%       | 17,465,344 | 98,304       | 0.56%        |
 
 
-### Table 6: Fully Associative
+### Fully Associative
 
 | Matrix Dimension | MxM Method | Blocking Factor | Instructions | Read Hits   | Read Misses | Read Miss % | Write Hits   | Write Misses | Write Miss % |
 |------------------|------------|-----------------|--------------|-------------|-------------|-------------|--------------|--------------|--------------|
@@ -201,7 +195,7 @@ Higher associativity reduces conflict misses, as more cache sets are available f
 4. I would suggest 1) using blocked matrix multiplication technique and 2) making sure matrix data is well aligned in memory.
 ```
 
-## 2.6 Replacement Policy Comparison
+## Replacement Policy Comparison
 
 | Replacement Policy | Instructions  | Read Hits   | Read Misses  | Read Miss % | Write Hits  | Write Misses | Write Miss % |
 |--------------------|---------------|-------------|--------------|-------------|-------------|--------------|--------------|
@@ -210,7 +204,7 @@ Higher associativity reduces conflict misses, as more cache sets are available f
 | LRU                | 443,289,600   | 107,035,281 | 114,148,719  | 51.61%      | 604,800     | 316,800      | 34.38%       |
 
 
-## 2.7 L1 + L2 
+## L1 + L2 
 
 ### Table 8  –  Miss Rates per Cache Level  
 Blocked MXM (d = 480, B = 32)
@@ -222,7 +216,7 @@ Blocked MXM (d = 480, B = 32)
 
 ---
 
-### Table 9  –  Memory‑access Totals & Hits  
+### Memory‑access Totals & Hits  
 Blocked MXM (d = 480, B = 32)
 
 | Config | RAM Accesses<sup>†</sup> | Read Hits (L1 + L2) | Write Hits (L1 + L2) |
